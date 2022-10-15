@@ -24,11 +24,6 @@ app.get("/notes", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/notes.html"))
 );
 
-// catch-all
-app.get("*", (req, res) =>
-  res.sendFile(path.join(__dirname, "/public/index.html"))
-);
-
 app.get("/api/notes", (req, res) => {
   res.json(notes);
 });
@@ -61,6 +56,11 @@ app.post("/api/notes", (req, res) => {
     res.status(400).json({ status: "request body missing" });
   }
 });
+
+// catch-all
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "/public/index.html"))
+);
 
 // start application
 app.listen(PORT, () =>
