@@ -42,6 +42,21 @@ app.delete("/api/notes/:id", (req, res) => {
   }
 });
 
+app.post("/api/notes", (req, res) => {
+  if (req.body) {
+    if (req.body.title && req.body.text) {
+      const note = { id: uuidv4(), ...req.body };
+      notes.unshift(note);
+      writeToFile(JSON.stringify(notes, null, 2));
+      res.status(200).json({ status: "success" });
+    } else {
+      res.status(400).json({ status: "invalid request body" });
+    }
+  } else {
+    res.status(400).json({ status: "request body missing" });
+  }
+});
+
 // start application
 app.listen(PORT, () =>
   console.log(`Note taker app listening at http://localhost:${PORT}`)
