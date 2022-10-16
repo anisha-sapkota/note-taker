@@ -18,7 +18,9 @@ Run the following command to start the application:
 npm start
 ```
 
-Use the UI to list, add and delete notes.The live application can be accessed [here](https://anisha-note-taker.herokuapp.com).
+Use the UI to list, add and delete notes.The live application can be accessed [here](https://anisha-note-taker.herokuapp.com) and the screenshot below:
+
+![screenshot](./screenshot.jpg)
 
 ## Technologies used
 
